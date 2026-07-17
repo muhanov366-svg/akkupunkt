@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Кабинет рефлексотерапии | Акупунктура</title>
-    <!-- Подключение шрифта для эстетичного вида -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet">
@@ -28,14 +27,65 @@
             padding: 0 20px;
         }
 
-        /* Шапка */
-        header {
-            background: linear-gradient(135deg, #1a3a3a, #235b5b);
-            color: white;
-            padding: 20px 0;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        /* --- ЭФФЕКТ ПАРАЛЛАКСА ДЛЯ ФОНА ВСЕЙ СТРАНИЦЫ --- */
+        .parallax-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background-image: url('https://disk.yandex.ru/i/5QpzxmOjcyFYgg'); /* Замените на прямую ссылку */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            filter: brightness(0.9);
         }
 
+        /* Все секции получают прозрачный фон, чтобы был виден параллакс */
+        section, header, footer {
+            position: relative;
+            background: rgba(255, 255, 255, 0.88);
+            backdrop-filter: blur(2px);
+            margin: 0;
+            padding: 40px 0;
+        }
+
+        header {
+            background: rgba(26, 58, 58, 0.92);
+            backdrop-filter: blur(4px);
+            padding: 20px 0;
+        }
+
+        footer {
+            background: rgba(26, 58, 58, 0.92);
+            backdrop-filter: blur(4px);
+        }
+
+        .hero {
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(4px);
+            padding: 60px 0;
+            border-bottom: none;
+        }
+
+        .schedule {
+            background: rgba(255, 255, 255, 0.80);
+            backdrop-filter: blur(4px);
+        }
+
+        .about {
+            background: rgba(248, 250, 252, 0.82);
+            backdrop-filter: blur(4px);
+        }
+
+        .contacts {
+            background: rgba(255, 255, 255, 0.80);
+            backdrop-filter: blur(4px);
+        }
+
+        /* Шапка */
         header .container {
             display: flex;
             justify-content: space-between;
@@ -47,12 +97,14 @@
             font-size: 1.8rem;
             font-weight: 700;
             letter-spacing: -0.5px;
+            color: white;
         }
 
         .logo p {
             font-size: 0.9rem;
             opacity: 0.8;
             font-weight: 300;
+            color: #d4e8e8;
         }
 
         .contact-header {
@@ -71,13 +123,11 @@
             color: white;
         }
 
-        /* Герой-секция */
-        .hero {
-            padding: 60px 0;
-            background: white;
-            border-bottom: 1px solid #e9edf2;
+        .contact-header p {
+            color: #d4e8e8;
         }
 
+        /* Герой-секция */
         .hero .container {
             display: flex;
             align-items: center;
@@ -104,7 +154,7 @@
         .hero-text p {
             font-size: 1.1rem;
             margin-bottom: 30px;
-            color: #475569;
+            color: #1e2f3a;
         }
 
         .btn {
@@ -128,7 +178,8 @@
         }
 
         .btn-outline {
-            background: transparent;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(2px);
             color: #1a3a3a;
             border: 2px solid #2d8f8f;
             box-shadow: none;
@@ -141,78 +192,21 @@
 
         .hero-image {
             flex: 1 1 300px;
-            background: #e2f0f0;
             border-radius: 20px;
-            padding: 30px;
-            text-align: center;
-            font-size: 5rem;
-            color: #1a3a3a;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.05);
+            overflow: hidden;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+            background: rgba(255,255,255,0.3);
         }
 
-        /* Секция услуг */
-        .services {
-            padding: 60px 0;
-            background: #f8fafc;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: 15px;
-            color: #1a3a3a;
-        }
-
-        .section-subtitle {
-            text-align: center;
-            color: #64748b;
-            margin-bottom: 40px;
-            font-size: 1.1rem;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-        }
-
-        .service-card {
-            background: white;
-            padding: 30px 25px;
-            border-radius: 16px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.04);
-            text-align: center;
-            transition: transform 0.3s;
-            border: 1px solid #edf2f7;
-        }
-
-        .service-card:hover {
-            transform: translateY(-8px);
-        }
-
-        .service-icon {
-            font-size: 2.8rem;
-            margin-bottom: 15px;
-        }
-
-        .service-card h3 {
-            font-size: 1.3rem;
-            margin-bottom: 10px;
-            color: #1a3a3a;
-        }
-
-        .service-card p {
-            color: #64748b;
-            font-size: 0.95rem;
+        .hero-image img {
+            display: block;
+            width: 100%;
+            height: auto;
+            max-height: 350px;
+            object-fit: cover;
         }
 
         /* Рабочий график */
-        .schedule {
-            padding: 60px 0;
-            background: white;
-        }
-
         .schedule-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -225,7 +219,8 @@
             display: flex;
             justify-content: space-between;
             padding: 12px 20px;
-            background: #f8fafc;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(2px);
             border-radius: 12px;
             border-left: 4px solid #2d8f8f;
         }
@@ -236,7 +231,7 @@
         }
 
         .schedule-item .time {
-            color: #475569;
+            color: #2c3e50;
         }
 
         .schedule-item.off {
@@ -245,11 +240,6 @@
         }
 
         /* О нас */
-        .about {
-            padding: 60px 0;
-            background: #f8fafc;
-        }
-
         .about-content {
             display: flex;
             gap: 40px;
@@ -269,12 +259,13 @@
 
         .about-text p {
             margin-bottom: 15px;
-            color: #475569;
+            color: #1e2f3a;
         }
 
         .about-image {
             flex: 1;
-            background: #d4e8e8;
+            background: rgba(212, 232, 232, 0.5);
+            backdrop-filter: blur(2px);
             border-radius: 20px;
             padding: 40px 20px;
             text-align: center;
@@ -287,11 +278,6 @@
         }
 
         /* Контакты и карты */
-        .contacts {
-            padding: 60px 0;
-            background: white;
-        }
-
         .contacts-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -300,7 +286,8 @@
         }
 
         .contact-item {
-            background: #f8fafc;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(2px);
             padding: 25px;
             border-radius: 16px;
             text-align: center;
@@ -323,7 +310,7 @@
         }
 
         .contact-item p, .contact-item a {
-            color: #475569;
+            color: #1e2f3a;
             text-decoration: none;
             transition: color 0.3s;
         }
@@ -347,7 +334,6 @@
 
         /* Подвал */
         footer {
-            background: #1a3a3a;
             color: #b8d4d4;
             padding: 30px 0;
             text-align: center;
@@ -392,10 +378,16 @@
                 text-align: center;
                 gap: 5px;
             }
+            .hero-image img {
+                max-height: 200px;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Фон с эффектом параллакса (на всю страницу) -->
+    <div class="parallax-bg"></div>
+
     <!-- Шапка -->
     <header>
         <div class="container">
@@ -410,7 +402,7 @@
         </div>
     </header>
 
-    <!-- Герой -->
+    <!-- Герой (с заменой иконки на картинку) -->
     <section class="hero">
         <div class="container">
             <div class="hero-text">
@@ -419,43 +411,15 @@
                 <a href="#contacts" class="btn">Записаться на приём</a>
             </div>
             <div class="hero-image">
-                🧘‍♂️
-                <p style="font-size: 1rem; margin-top: 10px; color: #1a3a3a;">Ваш путь к гармонии</p>
+                <!-- Вместо иконки вставлена ваша картинка -->
+                <img src="https://disk.yandex.ru/i/hyqyoBD4rCRJrA" alt="Акупунктура">
             </div>
         </div>
     </section>
 
-    <!-- Услуги -->
-    <section class="services" id="services">
-        <div class="container">
-            <h2 class="section-title">Наши методы</h2>
-            <p class="section-subtitle">Эффективные техники для вашего здоровья</p>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">🎯</div>
-                    <h3>Акупунктура</h3>
-                    <p>Классическое иглоукалывание для снятия боли, стресса и восстановления энергетического баланса.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">🔥</div>
-                    <h3>Прогревание</h3>
-                    <p>Тепловое воздействие на биологически активные точки для усиления лечебного эффекта.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">💆</div>
-                    <h3>Точечный массаж</h3>
-                    <p>Мягкая стимуляция точек для расслабления мышц и улучшения кровообращения.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">🧴</div>
-                    <h3>Гирудотерапия</h3>
-                    <p>Лечение с использованием медицинских пиявок (по индивидуальным показаниям).</p>
-                </div>
-            </div>
-        </div>
-    </section>
+    <!-- Раздел "Наши методы" полностью УДАЛЁН -->
 
-    <!-- Рабочий график (из ваших данных) -->
+    <!-- Рабочий график -->
     <section class="schedule" id="schedule">
         <div class="container">
             <h2 class="section-title">Режим работы</h2>
@@ -514,7 +478,7 @@
                 </div>
             </div>
 
-            <!-- Ссылки на карты и соцсети (ВСЕ ВАШИ ССЫЛКИ) -->
+            <!-- Ссылки на карты и соцсети -->
             <div class="map-links">
                 <a href="https://go.2gis.com/Mc0Up" target="_blank" class="btn btn-outline">📍 2ГИС</a>
                 <a href="https://yandex.ru/maps/-/CTRffOoj" target="_blank" class="btn btn-outline">🗺️ Яндекс Карты</a>
