@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://ваш-сайт.ru/sitemap.xml
