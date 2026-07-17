@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet">
-     <style>
+    <style>
         /* ----- ОБЩИЕ СБРОСЫ И БАЗА ----- */
         * {
             margin: 0;
@@ -23,7 +23,8 @@
             min-height: 100vh;
             display: flex;
             flex-direction: column;
-            align-items: center;  /* центрируем всё по горизонтали */
+            align-items: center;
+            padding: 0 10px;
         }
 
         .container {
@@ -56,13 +57,12 @@
             position: relative;
             background: rgba(255, 255, 255, 0.7);
             backdrop-filter: blur(2px);
-            margin: 0 auto 30px auto;   /* центрируем + отступ снизу */
+            margin: 0 auto 30px auto;
             padding: 40px 0;
-            max-width: 1200px;          /* ограничение ширины */
+            max-width: 1200px;
             width: 100%;
             border-radius: 20px;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-            
         }
 
         header {
@@ -103,6 +103,22 @@
         .contacts {
             background: rgba(255, 255, 255, 0.80);
             backdrop-filter: blur(4px);
+        }
+
+        /* ----- ЗАГОЛОВКИ СЕКЦИЙ ----- */
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            color: #1a3a3a;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #64748b;
+            margin-bottom: 30px;
+            font-size: 1.05rem;
         }
 
         /* ----- ШАПКА ----- */
@@ -189,6 +205,7 @@
             box-shadow: 0 4px 12px rgba(45, 143, 143, 0.3);
             border: none;
             cursor: pointer;
+            font-size: 1rem;
         }
 
         .btn:hover {
@@ -243,6 +260,7 @@
             backdrop-filter: blur(2px);
             border-radius: 12px;
             border-left: 4px solid #2d8f8f;
+            align-items: center;
         }
 
         .schedule-item .day {
@@ -287,14 +305,21 @@
             background: rgba(212, 232, 232, 0.5);
             backdrop-filter: blur(2px);
             border-radius: 20px;
-            padding: 40px 20px;
+            padding: 20px;
             text-align: center;
-            font-size: 4rem;
-            color: #1a3a3a;
             min-height: 200px;
             display: flex;
             align-items: center;
             justify-content: center;
+            overflow: hidden;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            max-height: 300px;
+            object-fit: cover;
+            border-radius: 12px;
         }
 
         /* ----- КОНТАКТЫ ----- */
@@ -344,12 +369,12 @@
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            gap: 20px;
+            gap: 15px;
             margin-top: 40px;
         }
 
         .map-links .btn {
-            min-width: 200px;
+            min-width: 180px;
             text-align: center;
         }
 
@@ -363,6 +388,7 @@
         footer a {
             color: #8fc7c7;
             text-decoration: none;
+            transition: color 0.3s;
         }
 
         footer a:hover {
@@ -371,49 +397,125 @@
 
         .footer-socials {
             margin-top: 10px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
         }
 
         .footer-socials a {
             display: inline-block;
-            margin: 0 10px;
-            font-size: 1.2rem;
+            font-size: 1rem;
         }
 
-        /* ----- АДАПТИВНОСТЬ ----- */
+        /* ============================================ */
+        /* ----- АДАПТИВНОСТЬ ДЛЯ ВСЕХ ЭКРАНОВ ----- */
+        /* ============================================ */
+
+        /* Планшеты и маленькие ноутбуки */
+        @media (max-width: 992px) {
+            .hero-text h2 {
+                font-size: 2.2rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+
+        /* Мобильные устройства (планшеты) */
         @media (max-width: 768px) {
+            body {
+                padding: 0 8px;
+            }
+
             header .container {
                 flex-direction: column;
                 text-align: center;
+                gap: 10px;
             }
 
             .contact-header {
                 text-align: center;
-                margin-top: 10px;
+                margin-top: 5px;
+            }
+
+            .logo h1 {
+                font-size: 1.5rem;
             }
 
             .hero-text h2 {
                 font-size: 2rem;
             }
 
-            .schedule-item {
+            .hero-text p {
+                font-size: 1rem;
+            }
+
+            .hero .container {
                 flex-direction: column;
-                align-items: center;
-                text-align: center;
-                gap: 5px;
+                gap: 30px;
+            }
+
+            .hero-image {
+                width: 100%;
+                max-width: 400px;
+                margin: 0 auto;
             }
 
             .hero-image img {
-                max-height: 200px;
+                max-height: 250px;
+            }
+
+            .schedule-item {
+                flex-direction: row;
+                justify-content: space-between;
+                padding: 10px 16px;
+            }
+
+            .about-content {
+                flex-direction: column;
+            }
+
+            .about-image {
+                width: 100%;
+                max-width: 400px;
+                margin: 0 auto;
+                min-height: 150px;
+            }
+
+            .about-image img {
+                max-height: 250px;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .section-subtitle {
+                font-size: 0.95rem;
+            }
+
+            .contacts-grid {
+                grid-template-columns: 1fr;
+                max-width: 400px;
+                margin: 30px auto 0;
+            }
+
+            .map-links .btn {
+                min-width: 150px;
+                font-size: 0.9rem;
+                padding: 12px 20px;
             }
 
             section,
             header,
             footer {
                 padding: 30px 0;
-                margin-left: 10px;
-                margin-right: 10px;
-                width: calc(100% - 20px);
+                margin-left: 0;
+                margin-right: 0;
                 border-radius: 16px;
+                width: 100%;
             }
 
             header {
@@ -425,36 +527,207 @@
             }
         }
 
+        /* Маленькие телефоны */
         @media (max-width: 480px) {
+            body {
+                padding: 0 5px;
+            }
+
+            .container {
+                padding: 0 14px;
+            }
+
             section,
             header,
             footer {
                 padding: 20px 0;
-                margin-left: 6px;
-                margin-right: 6px;
-                width: calc(100% - 12px);
                 border-radius: 12px;
+                margin-bottom: 20px;
             }
 
             header {
                 border-radius: 0 0 12px 12px;
+                padding: 15px 0;
             }
 
             footer {
                 border-radius: 12px 12px 0 0;
+                padding: 20px 0;
+            }
+
+            .hero {
+                padding: 30px 0;
             }
 
             .hero-text h2 {
                 font-size: 1.6rem;
             }
 
-            .btn {
-                padding: 12px 24px;
+            .hero-text p {
                 font-size: 0.95rem;
             }
 
+            .btn {
+                padding: 12px 24px;
+                font-size: 0.9rem;
+                width: 100%;
+                text-align: center;
+            }
+
+            .btn-outline {
+                margin-top: 8px;
+            }
+
+            .hero .container {
+                gap: 20px;
+            }
+
+            .hero-image img {
+                max-height: 200px;
+            }
+
+            .logo h1 {
+                font-size: 1.3rem;
+            }
+
+            .logo p {
+                font-size: 0.75rem;
+            }
+
+            .contact-header a {
+                font-size: 1rem;
+            }
+
+            .contact-header p {
+                font-size: 0.7rem !important;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .section-subtitle {
+                font-size: 0.85rem;
+                margin-bottom: 20px;
+            }
+
+            .schedule-grid {
+                grid-template-columns: 1fr;
+                gap: 10px;
+                max-width: 100%;
+            }
+
+            .schedule-item {
+                padding: 10px 14px;
+                font-size: 0.9rem;
+            }
+
+            .about-text h3 {
+                font-size: 1.4rem;
+            }
+
+            .about-text p {
+                font-size: 0.95rem;
+            }
+
+            .about-image {
+                min-height: 120px;
+                padding: 15px;
+            }
+
+            .about-image img {
+                max-height: 200px;
+            }
+
+            .contacts-grid {
+                gap: 15px;
+            }
+
+            .contact-item {
+                padding: 18px;
+            }
+
+            .contact-item .icon {
+                font-size: 1.5rem;
+            }
+
+            .map-links {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+                margin-top: 25px;
+            }
+
+            .map-links .btn {
+                min-width: 100%;
+                max-width: 280px;
+                font-size: 0.85rem;
+                padding: 10px 20px;
+            }
+
+            .footer-socials {
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .footer-socials a {
+                font-size: 0.9rem;
+            }
+
+            footer {
+                font-size: 0.8rem;
+            }
+        }
+
+        /* Очень маленькие телефоны (до 360px) */
+        @media (max-width: 360px) {
+            .hero-text h2 {
+                font-size: 1.3rem;
+            }
+
             .container {
-                padding: 0 14px;
+                padding: 0 10px;
+            }
+
+            .btn {
+                padding: 10px 16px;
+                font-size: 0.8rem;
+            }
+
+            .logo h1 {
+                font-size: 1.1rem;
+            }
+
+            .section-title {
+                font-size: 1.3rem;
+            }
+
+            .schedule-item {
+                font-size: 0.8rem;
+                padding: 8px 12px;
+            }
+        }
+
+        /* Альбомная ориентация на телефонах */
+        @media (max-height: 500px) and (orientation: landscape) {
+            .hero {
+                padding: 20px 0;
+            }
+
+            .hero-text h2 {
+                font-size: 1.5rem;
+            }
+
+            .hero-image img {
+                max-height: 150px;
+            }
+
+            section {
+                padding: 15px 0;
+            }
+
+            .schedule-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
         }
     </style>
@@ -477,7 +750,7 @@
         </div>
     </header>
 
-    <!-- Герой (с заменой иконки на картинку) -->
+    <!-- Герой -->
     <section class="hero">
         <div class="container">
             <div class="hero-text">
@@ -486,13 +759,10 @@
                 <a href="#contacts" class="btn">Записаться на приём</a>
             </div>
             <div class="hero-image">
-                <!-- Вместо иконки вставлена ваша картинка -->
                 <img src="1.png" alt="Акупунктура">
             </div>
         </div>
     </section>
-
-    <!-- Раздел "Наши методы" полностью УДАЛЁН -->
 
     <!-- Рабочий график -->
     <section class="schedule" id="schedule">
@@ -522,7 +792,7 @@
                     <p style="margin-top: 10px;"><strong>Специалист:</strong> врач-рефлексотерапевт с опытом более 10 лет.</p>
                 </div>
                 <div class="about-image">
-                     <img src="4.png" alt="кабинет">
+                    <img src="4.png" alt="кабинет">
                 </div>
             </div>
         </div>
@@ -570,9 +840,9 @@
         <div class="container">
             <p>© 2026 Кабинет рефлексотерапии. Все права защищены.</p>
             <div class="footer-socials">
-                <a href="https://vk.com/aleksey_slivko" target="_blank" style="color: #8fc7c7;">ВКонтакте</a>
-                <a href="https://go.2gis.com/Mc0Up" target="_blank" style="color: #8fc7c7;">2ГИС</a>
-                <a href="https://yandex.ru/maps/-/CTRffOoj" target="_blank" style="color: #8fc7c7;">Яндекс Карты</a>
+                <a href="https://vk.com/aleksey_slivko" target="_blank">ВКонтакте</a>
+                <a href="https://go.2gis.com/Mc0Up" target="_blank">2ГИС</a>
+                <a href="https://yandex.ru/maps/-/CTRffOoj" target="_blank">Яндекс Карты</a>
             </div>
             <p style="margin-top: 8px; opacity: 0.6; font-size: 0.8rem;">
                 * Время работы указано для записи. Возможны изменения.
