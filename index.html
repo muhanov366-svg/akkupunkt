@@ -18,11 +18,6 @@
     <!-- ДЛЯ ПОИСКОВЫХ РОБОТОВ -->
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://ваш-сайт.ru">
-
-    <title>Кабинет рефлексотерапии | Акупунктура</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet">
     <style>
         /* ----- ОБЩИЕ СБРОСЫ И БАЗА ----- */
         * {
@@ -704,6 +699,24 @@
                 grid-template-columns: repeat(2, 1fr);
             }
         }
+
+        /* Контейнер для карты */
+    .map-wrapper {
+        width: 100%;           /* На всю ширину родителя */
+        height: 66.66vh;       /* Примерно 2/3 от высоты экрана (viewport height) */
+        margin-bottom: 2rem;   /* Отступ снизу до контактов */
+        border-radius: 8px;    /* Опционально: скругление углов */
+        overflow: hidden;      /* Чтобы скругление работало и для карты */
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Опционально: тень */
+    }
+
+    /* Адаптив: на мобильных устройствах уменьшаем высоту карты */
+    @media (max-width: 768px) {
+        .map-wrapper {
+            height: 400px;     /* Фиксированная высота для телефонов */
+        }
+    }
+        
     </style>
 </head>
 <body>
@@ -729,7 +742,7 @@
         <div class="container">
             <div class="hero-text">
                 <h2>Восстановление <br><span class="highlight">через иглоукалывание</span></h2>
-                <p>Профессиональный кабинет рефлексотерапии. Индивидуальный подход, опытный специалист, современные методики акупунктуры.</p>
+                <p>Профессиональный кабинет рефлексотерапии в центре Перми на Екатерининской 51. Индивидуальный подход, опытный специалист, современные методики акупунктуры.</p>
                 <a href="#contacts" class="btn">Записаться на приём</a>
             </div>
             <div class="hero-image">
@@ -761,7 +774,7 @@
             <h2>Акупунктура — эффективный метод лечения</h2>
             <p><strong>Что такое акупунктура?</strong> Это метод восточной медицины, основанный на воздействии на биологически активные точки организма с помощью специальных игл. Современные исследования подтверждают эффективность иглоукалывания при лечении:</p>
             <ul>
-                <li>Остеохондроза и болей в спине</li>
+                <li>Остеохондроза, головных болей и болей в спине</li>
                 <li>Головных болей и мигреней</li>
                 <li>Неврозов, тревожности, бессонницы</li>
                 <li>Хронической усталости</li>
@@ -769,36 +782,49 @@
                 <li>Аллергических заболеваний</li>
             </ul>
             <p><strong>Противопоказания к акупунктуре:</strong> онкологические заболевания, острые инфекции, беременность, нарушения свертываемости крови. Перед сеансом необходима консультация врача.</p>
-        </div>
-    </section>
 
-    <!-- Контакты и карты (на всю ширину) -->
-    <section class="contacts" id="contacts">
-        <div class="container">
-            <h2 class="section-title">Контакты и расположение</h2>
-            <p class="section-subtitle">Как нас найти и связаться с нами</p>
-            <div class="contacts-grid">
-                <div class="contact-item">
-                    <div class="icon">📍</div>
-                    <h4>Адрес</h4>
-                    <p>г. Пермь, ул. Екатерининская, д. 51</p>
-                    <p style="font-size: 0.85rem; margin-top: 5px; color: #64748b;">(вход со стороны парка)</p>
-                </div>
-                <div class="contact-item">
-                    <div class="icon">📞</div>
-                    <h4>Телефон</h4>
-                    <a href="tel:+71234567890">+7 (123) 456-78-90</a>
-                    <p style="font-size: 0.85rem; margin-top: 5px; color: #64748b;">WhatsApp, Telegram</p>
-                </div>
-                <div class="contact-item">
-                    <div class="icon">📧</div>
-                    <h4>Email</h4>
-                    <a href="mailto:info@acupuncture.ru">info@acupuncture.ru</a>
-                </div>
-                <div class="contact-item">
-                    <img src="akupunktura-perm-lechenie-kabinet.png" alt="Кабинет акупунктуры">
-                </div>
+            <section class="contacts" id="contacts">
+    <div class="container">
+        <h2 class="section-title">Контакты и расположение</h2>
+        <p class="section-subtitle">Как нас найти и связаться с нами</p>
+
+        <!-- Блок с картой -->
+        <div class="map-wrapper">
+            <iframe 
+                src="https://yandex.ru/maps/-/CTRKaI-Y?ll=56.248000%2C58.010000&z=16" 
+                width="100%" 
+                height="100%" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+        </div>
+
+        <div class="contacts-grid">
+            <div class="contact-item">
+                <div class="icon">📍</div>
+                <h4>Адрес</h4>
+                <p>г. Пермь, ул. Екатерининская, д. 51</p>
+                <p style="font-size: 0.85rem; margin-top: 5px; color: #64748b;">(вход со стороны парка)</p>
             </div>
+            <div class="contact-item">
+                <div class="icon">📞</div>
+                <h4>Телефон</h4>
+                <a href="tel:+71234567890">+7 (123) 456-78-90</a>
+                <p style="font-size: 0.85rem; margin-top: 5px; color: #64748b;">WhatsApp, Telegram</p>
+            </div>
+            <div class="contact-item">
+                <div class="icon">📧</div>
+                <h4>Email</h4>
+                <a href="mailto:info@acupuncture.ru">info@acupuncture.ru</a>
+            </div>
+            <div class="contact-item">
+                <img src="akupunktura-perm-lechenie-kabinet.png" alt="Кабинет акупунктуры">
+            </div>
+        </div>
+    </div>
+</section>
 
             <!-- Ссылки на карты и соцсети -->
             <div class="map-links">
