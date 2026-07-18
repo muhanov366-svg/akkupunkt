@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://muhanov366-svg.github.io/sitemap.xml
